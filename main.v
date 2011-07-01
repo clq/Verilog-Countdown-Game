@@ -18,10 +18,11 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module main(clk, reset, multiply, Led, seg, an, sw );    
+module main(clk, reset, multiply, multiply2, Led, seg, an, sw );    
  
 	input reset;
 	input multiply;
+	input multiply2;	
 	input clk;
 	input [7:0] sw;
    output [7:0] Led;
@@ -31,18 +32,20 @@ module main(clk, reset, multiply, Led, seg, an, sw );
 	
  
 	reg [7:0] Led;
-	reg [3:0] an;
+	reg [3:0] an = 4'b1111;
 	reg [6:0] seg;
 	wire [6:0] tens;
 	wire [6:0] ones;
 	reg [17:0] counter;
-	reg [7:0] From;
+	reg [6:0] From;
 	wire [6:0] Number;
 
 
 SevenSegment2digit A1(clk, Number, tens, ones);
 
 Countdown C1(clk, reset, From, Number);
+
+
 
     always @(posedge clk)
     begin
@@ -69,7 +72,9 @@ end
 if (multiply) begin
 Led = Led * 2;
 end
-
+if (multiply2) begin
+Led = Led * 8;
+end
 
 if ((counter == 18'b000000000000000001) && (tens != 7'b1000000)) begin
 an <= 4'b0111;
@@ -81,6 +86,7 @@ seg <= ones;
 end
 if (reset) begin
 From <= Led;
+an <= 4'b0000;
 end
 
     end
