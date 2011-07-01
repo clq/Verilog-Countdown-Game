@@ -33,10 +33,20 @@ reg [6:0] current;
 reg win = 0;
 reg lose = 0;
 reg pause = 1;
+wire clk;
 
 
 
 always @ (posedge clk) begin
+
+if (reset) begin
+current = from;
+counter = 0;
+pause <= 0;
+lose <= 0;
+win <= 0;
+end
+
 
 if ((stop) && (pause == 0)) begin
 pause <= 1;
@@ -54,13 +64,6 @@ pause <= 1;
 end
 
 
-	if (reset) begin
-	current = from;
-	counter = 0;
-	pause <= 0;
-	lose <= 0;
-	win <= 0;
-	end
 	
 	if ((counter < CLOCK) && (pause == 0)) begin
 	counter = counter + 1;
