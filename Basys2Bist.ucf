@@ -33,7 +33,7 @@ NET "seg<3>" LOC = "N11"; # Bank = 2, Signal name = CD
 NET "seg<4>" LOC = "P12"; # Bank = 2, Signal name = CE
 NET "seg<5>" LOC = "L13"; # Bank = 1, Signal name = CF
 NET "seg<6>" LOC = "M12"; # Bank = 1, Signal name = CG
-#NET "dp" LOC = "N13"; # Bank = 1, Signal name = DP
+NET "dp" LOC = "N13"; # Bank = 1, Signal name = DP
 #
 NET "an<3>" LOC = "K14"; # Bank = 1, Signal name = AN3
 NET "an<2>" LOC = "M13"; # Bank = 1, Signal name = AN2
@@ -61,6 +61,6 @@ NET "sw<1>" LOC = "L3";  # Bank = 3, Signal name = SW1
 NET "sw<0>" LOC = "P11";  # Bank = 2, Signal name = SW0
 
 #NET "btn<3>" LOC = "A7";  # Bank = 1, Signal name = BTN3
-NET "multiply2" LOC = "M4";  # Bank = 0, Signal name = BTN2
+NET "reset" LOC = "M4";  # Bank = 0, Signal name = BTN2
 NET "multiply" LOC = "C11"; # Bank = 2, Signal name = BTN1
-NET "reset" LOC = "G12"; # Bank = 0, Signal name = BTN0
+NET "stop" LOC = "G12"; # Bank = 0, Signal name = BTN0
